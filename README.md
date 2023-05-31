@@ -1,4 +1,4 @@
-# pancreatic-cancer-data-analysis
+# Immune Infiltration in PDAC
 Internship project by Isabel Wassink
 
 Analysis of pancreatic cancer transcriptomics datasets with general and pancreatic cancer specific pathway models
