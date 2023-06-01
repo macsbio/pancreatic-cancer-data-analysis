@@ -334,35 +334,6 @@ fig <- fig %>% layout(
 fig
 
 ################################################################
-# filtering of immune genes
-immunegenes <- data.all[data.all$GO.Process.ID %like% "GO:0002376" | 
-                          data.all$GO.Process.ID %like% "GO:0006955" |
-                          data.all$GO.Process.ID %like% "GO:0006954",]
-
-# heatmap of immune genes 
-rnames <- immunegenes[,1]                                   # assign labels in column 1 to "rnames"
-mat_data <- data.matrix(immunegenes[, c(4, 7, 10)])         # transform logFC columns into a matrix
-rownames(immunegenes) <- rnames  
-
-my_palette <- colorRampPalette(c("blue", "white", "red"))(n = 299)
-
-colors <- seq(from=-3, to=3, length.out=300)
-map <- heatmap.2(mat_data,
-                 col = my_palette,
-                 breaks = colors,
-                 trace = "none", 
-                 density.info = "none",
-                 Colv = FALSE,
-                 cexRow = 0.4,
-                 cexCol = 0.8,
-                 keysize = 0.5,
-                 key.par = list(cex=0.4)
-)
-
-# use if new plot doesn't work after error:
-# dev.off()
-
-################################################################
 # data visualization on pathways
 data.values <- c(-1,0,1)
 node.colors <- c(rev(brewer.pal(length(data.values), "RdBu")))
